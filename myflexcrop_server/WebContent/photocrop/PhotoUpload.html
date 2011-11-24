@@ -40,6 +40,34 @@ var requiredMinorVersion = 2;
 var requiredRevision = 0;
 // -----------------------------------------------------------------------------
 // -->
+
+var getPostURL=function(){
+return "http://localhost/servlet/flex_img_up";
+}
+
+var getPhotoURL=function(){
+return "http://localhost/upload/myimg.jpg";
+}
+
+var getPhotoWidth=function(){
+return "800";
+}
+
+var getPhotoHeight=function(){
+return "200";
+}
+
+var getPhotoPathOnServer=function(){
+	return "/upload/userHead/"
+}
+
+var getCallBackFunction=function(){
+return "uploadCallback";
+}
+
+var uploadCallback=function(msg){
+ alert("call back message is "+msg);
+}
 </script>
 </head>
 
@@ -78,8 +106,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 	// if we've detected an acceptable version
 	// embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "PhotoUpload?url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg",
-			"FlashVars", "url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg",
+			"src", "PhotoUpload",
 			"width", "560",
 			"height", "400",
 			"align", "middle",
@@ -103,12 +130,11 @@ if ( hasProductInstall && !hasRequestedVersion ) {
   	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 			id="PhotoUpload" width="560" height="400"
 			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-			<param name="movie" value="PhotoUpload.swf?url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg" />
-			<param name="FlashVars" value="url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg" />
+			<param name="movie" value="PhotoUpload.swf" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="#c8c8c8" />
 			<param name="allowScriptAccess" value="sameDomain" />
-			<embed src="PhotoUpload.swf?url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg" FlashVars="url=http://localhost/servlet/flex_img_up&photo=/upload/myimg.jpg" quality="high" bgcolor="#c8c8c8"
+			<embed src="PhotoUpload.swf" quality="high" bgcolor="#c8c8c8"
 				width="560" height="400" name="PhotoUpload" align="middle"
 				play="true"
 				loop="false"
